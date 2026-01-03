@@ -42,7 +42,6 @@ resource "aws_subnet" "private_subneta" {
   cidr_block              = "10.124.11.0/24"
   availability_zone       = "ap-northeast-3a"
   map_public_ip_on_launch = true
-  #id                      = "subnet-privatea"
   tags = {
     Name    = "private_dbase_subneta"
     Service = "private database"
@@ -53,7 +52,6 @@ resource "aws_subnet" "private_subnetb" {
   cidr_block              = "10.124.12.0/24"
   availability_zone       = "ap-northeast-3b"
   map_public_ip_on_launch = true
-  #id                      = "subnet-privateb"
   tags = {
     Name    = "private_dbase_subnetb"
     Service = "private database"
@@ -65,7 +63,6 @@ resource "aws_subnet" "private_subnetc" {
   cidr_block              = "10.124.13.0/24"
   availability_zone       = "ap-northeast-3c"
   map_public_ip_on_launch = true
-  #id                      = "subnet-privatec"
   tags = {
     Name    = "private_dbase_subnetc"
     Service = "private database"
@@ -77,11 +74,11 @@ resource "aws_subnet" "private_subnetc" {
 #   reservation_type = "prefix"
 #   subnet_id        = aws_subnet.private-subnetc.id
 # }
-# # 1. Create a DB Subnet Group
-# resource "aws_db_subnet_group" "dbase_subnet" {
-#   name       = "my-db-subnet-group"
-#   subnet_ids = [aws_subnet.private-subneta-id.id,aws_subnet.private-subnetb-id.id,aws_subnet.private-subnetcid.id] # List of your private subnet IDs
-#   tags = {
-#     Name = "My DB subnet group"
-#   }
-# }
+##############CREATE DBase subnet Group#####################
+resource "aws_db_subnet_group" "dbase-subnet" {
+  name       = "my-db-subnet-group"
+  subnet_ids = [aws_subnet.private_subneta.id,aws_subnet.private_subnetb.id,aws_subnet.private_subnetc.id] # List of your private subnet IDs
+  tags = {
+    Name = "My DB subnet group"
+  }
+}
