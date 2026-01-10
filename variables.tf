@@ -35,6 +35,7 @@ variable "azs" {
   default     = ["ap-northeast-3a", "ap-northeast-3b", "ap-northeast-3c"] # TODO: student supplies
 }
 
+####Depends on Region####
 variable "ec2_ami_id" {
   description = "AMI ID for the EC2 app host."
   type        = string

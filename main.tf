@@ -62,7 +62,7 @@ resource "aws_subnet" "echobase_private_subnets" {
 # NAT Gateway + EIP
 ############################################
 # Explanation: Chewbacca wants the private base to call home—EIP gives the NAT a stable “holonet address.”
-resource "aws_eip" "echobse_nat_eip01" {
+resource "aws_eip" "echobase_nat_eip01" {
   domain = "vpc"
 
   tags = {
