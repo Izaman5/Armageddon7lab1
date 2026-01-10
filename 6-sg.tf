@@ -61,7 +61,7 @@ resource "aws_security_group" "echobase_rds_sg01" {
   }
 }
 
-resource "aws_vpc_security_group_egress_rule" "echobase_ec2tords_rule" {
+resource "aws_vpc_security_group_ingress_rule" "echobase_ec2tords_rule" {
   security_group_id = aws_security_group.echobase_rds_sg01.id
 
   referenced_security_group_id = aws_security_group.echobase_ec2_sg01.id
