@@ -1,30 +1,30 @@
-# Explanation: This is your “Han Solo box”—it talks to RDS and complains loudly when the DB is down.
-resource "aws_instance" "echobase_ec201" {
-  ami                    = var.ec2_ami_id
-  instance_type           = var.ec2_instance_type
-  subnet_id               = aws_subnet.echobase_public_subnets[0].id
-  vpc_security_group_ids  = [aws_security_group.echobase_ec2_sg01.id]
-  iam_instance_profile    = aws_iam_instance_profile.echobase_instance_profile01.name
+# # Explanation: This is your “Han Solo box”—it talks to RDS and complains loudly when the DB is down.
+# resource "aws_instance" "echobase_ec201" {
+#   ami                    = var.ec2_ami_id
+#   instance_type           = var.ec2_instance_type
+#   subnet_id               = aws_subnet.echobase_public_subnets[0].id
+#   vpc_security_group_ids  = [aws_security_group.echobase_ec2_sg01.id]
+#   iam_instance_profile    = aws_iam_instance_profile.echobase_instance_profile01.name
 
-  # TODO: student supplies user_data to install app + CW agent + configure log shipping
-  # user_data = file("${path.module}/user_data.sh")
-
-  tags = {
-    Name = "${local.name_prefix}-ec201"
-  }
-}
-# resource "aws_instance" "web_server" {
-#   ami                         = var.ami
-#   associate_public_ip_address = true
-#   instance_type               = var.instance_type
-#   # key_name = 
-#   vpc_security_group_ids = [aws_security_group.sg-ec2-lab.id]
-#   subnet_id              = aws_subnet.public_subneta.id
-
-
-#   user_data = file("user_data.sh")
+#   # TODO: student supplies user_data to install app + CW agent + configure log shipping
+#   # user_data = file("${path.module}/user_data.sh")
 
 #   tags = {
-#     Name = "web-server"
+#     Name = "${local.name_prefix}-ec201"
 #   }
 # }
+# # resource "aws_instance" "web_server" {
+# #   ami                         = var.ami
+# #   associate_public_ip_address = true
+# #   instance_type               = var.instance_type
+# #   # key_name = 
+# #   vpc_security_group_ids = [aws_security_group.sg-ec2-lab.id]
+# #   subnet_id              = aws_subnet.public_subneta.id
+
+
+# #   user_data = file("user_data.sh")
+
+# #   tags = {
+# #     Name = "web-server"
+# #   }
+# # }
